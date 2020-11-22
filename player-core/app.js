@@ -1605,7 +1605,7 @@ function reportWindowSize(event) {
 
 		if(window.innerWidth > 992){
 			if(window.currentRes === 'xs'){
-				setRes(1920, 1080);
+				setRes(1280, 720);
 				window.currentRes = 'xl';
 			}
 		
@@ -1619,18 +1619,18 @@ function reportWindowSize(event) {
 				document.querySelector('#playerUI').style.height = Math.floor(document.querySelector('.player').offsetHeight - 140 - (document.querySelector('.player').offsetHeight/100) * 4) + 'px';
 			}
 
-			_fs.style.width = Math.floor(( document.querySelector('#playerUI').offsetWidth / 1920) * 100) + 'px';
-			_fs.style.height = Math.floor(( document.querySelector('#playerUI').offsetWidth / 1920) * 100) + 'px';
+			_fs.style.width = Math.floor(( document.querySelector('#playerUI').offsetWidth / 1280) * 100) + 'px';
+			_fs.style.height = Math.floor(( document.querySelector('#playerUI').offsetWidth / 1280) * 100) + 'px';
 
 		}else{
 			if(window.currentRes === 'xl'){
-				setRes(1080, 1920);
+				setRes(720, 1280);
 				window.currentRes = 'xs';
 			}
 			document.querySelector('#playerUI').style.width = Math.floor(_h *  0.5625) + 'px';    //
 
-			_fs.style.width = Math.floor(( document.querySelector('#playerUI').offsetWidth / 1080) * 100) + 'px';
-			_fs.style.height = Math.floor(( document.querySelector('#playerUI').offsetWidth / 1080) * 100) + 'px';
+			_fs.style.width = Math.floor(( document.querySelector('#playerUI').offsetWidth / 720) * 100) + 'px';
+			_fs.style.height = Math.floor(( document.querySelector('#playerUI').offsetWidth / 720) * 100) + 'px';
 		}
 	}catch{}
 
