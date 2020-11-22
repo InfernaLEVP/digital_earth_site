@@ -265,6 +265,7 @@ function showPlayOverlay() {
 				window.currentRes = 'xs';
 				window.currentOrientation = 'h';
 			}
+			document.getElementById('match-viewport-res-tgl').click();
 		requestQualityControl();
 
 		showFreezeFrameOverlay();

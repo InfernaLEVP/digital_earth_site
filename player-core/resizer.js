@@ -76,11 +76,11 @@ window.addEventListener('resize', function(event) {
     window.prevOrientation = 'not';
     window.currentOrientation = 'l';
     // setRes(1280, 720);
-    document.querySelector('#flag').innerHTML = '1280';
+    // document.querySelector('#flag').innerHTML = '1280';
   }else{
     // window.prevOrientation = 'not';
     window.currentOrientation = 'h';
-    document.querySelector('#flag').innerHTML = '720';
+    // document.querySelector('#flag').innerHTML = '720';
     // setRes(720, 1280);
   }
   // event.preventDefault();
