@@ -256,7 +256,15 @@ function showPlayOverlay() {
 	setOverlay('clickableState', img, event => {
 		if (webRtcPlayerObj)
 			webRtcPlayerObj.video.play();
-
+			if(window.innerWidth > 992){
+				setRes(1280, 720);// eslint-disable-line 
+				window.currentRes = 'xl';
+				window.currentOrientation = 'l';
+			}else{
+				setRes(720, 1280);// eslint-disable-line 
+				window.currentRes = 'xs';
+				window.currentOrientation = 'h';
+			}
 		requestQualityControl();
 
 		showFreezeFrameOverlay();
