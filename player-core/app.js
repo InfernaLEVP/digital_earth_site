@@ -257,11 +257,11 @@ function showPlayOverlay() {
 		if (webRtcPlayerObj)
 			webRtcPlayerObj.video.play();
 			if(window.innerWidth > 992){
-				setRes(1280, 720);// eslint-disable-line 
+				setRes(window.res_w, window.res_h);// eslint-disable-line 
 				window.currentRes = 'xl';
 				window.currentOrientation = 'l';
 			}else{
-				setRes(720, 1280);// eslint-disable-line 
+				setRes(window.res_w, window.res_h);// eslint-disable-line 
 				window.currentRes = 'xs';
 				window.currentOrientation = 'h';
 			}
@@ -1522,7 +1522,7 @@ function connect() {
 		return;
 	}
 
-	ws = new WebSocket(window.location.href.replace('http://', 'ws://').replace('https://', 'wss://'));
+	ws = new WebSocket('http://192.168.1.6:80/'.replace('http://', 'ws://').replace('https://', 'wss://'));
 	// window.location.href
 	// http://79.143.64.66/
 	ws.onmessage = function (event) {
