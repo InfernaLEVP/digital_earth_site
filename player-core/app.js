@@ -217,6 +217,10 @@ function setOverlay(htmlClass, htmlElement, onClickFunction) {
 	if (onClickFunction) {
 		videoPlayOverlay.addEventListener('click', function onOverlayClick(event) {
 			onClickFunction(event);
+			if(iOS()){
+				console.log('IOS SE');
+				resizePlayerStyle();
+			}
 			videoPlayOverlay.removeEventListener('click', onOverlayClick);
 		});
 	}
@@ -256,12 +260,14 @@ function showPlayOverlay() {
 	setOverlay('clickableState', img, event => {
 		if (webRtcPlayerObj)
 			webRtcPlayerObj.video.play();
+			window.res_w = window.screen.width * window.devicePixelRatio;
+			window.res_h = window.screen.height * window.devicePixelRatio;
 			if(window.innerWidth > 992){
-				setRes(window.res_w, window.res_h);// eslint-disable-line 
+				// setRes(window.res_w, window.res_h);// eslint-disable-line 
 				window.currentRes = 'xl';
 				window.currentOrientation = 'l';
 			}else{
-				setRes(window.res_w, window.res_h);// eslint-disable-line 
+				// setRes(window.res_w, window.res_h);// eslint-disable-line 
 				window.currentRes = 'xs';
 				window.currentOrientation = 'h';
 			}
@@ -272,6 +278,7 @@ function showPlayOverlay() {
 		hideOverlay();
 	});
 	shouldShowPlayOverlay = false;
+	// document.querySelector('#videoPlayOverlay').click();
 }
 
 function updateAfkOverlayText() {

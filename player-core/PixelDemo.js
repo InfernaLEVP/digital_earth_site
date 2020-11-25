@@ -53,7 +53,10 @@ function onCharacterButton(category, item) {
     console.log(descriptor);
 }
 
-function onConfigButton(category, item) {
+function onConfigButton(category, item, event) {
+	console.log(event.target);
+	document.querySelector('.activeAvatar').classList.remove('activeAvatar');
+	event.target.classList.add('activeAvatar');
     let descriptor = {
         Category: category,
         Item: item
