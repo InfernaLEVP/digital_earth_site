@@ -19,6 +19,7 @@ function reportWindowSize(event) {
       if(window.innerWidth > 992){
         if(window.currentRes === 'xs'){
           // setRes(window.res_w, window.res_h);
+          // setRes(1280, 720);
           window.currentRes = 'xl';
         }
         
@@ -45,6 +46,7 @@ function reportWindowSize(event) {
             window.prevOrientation = 'qwe';
           }else{
             // setRes(window.res_w, window.res_h);
+            // setRes(720, 1280);
           }
           window.currentRes = 'xs';
 

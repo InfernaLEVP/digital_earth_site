@@ -264,10 +264,12 @@ function showPlayOverlay() {
 			window.res_h = window.screen.height * window.devicePixelRatio;
 			if(window.innerWidth > 992){
 				// setRes(window.res_w, window.res_h);// eslint-disable-line 
+				// setRes(1280, 720);
 				window.currentRes = 'xl';
 				window.currentOrientation = 'l';
 			}else{
 				// setRes(window.res_w, window.res_h);// eslint-disable-line 
+				// setRes(720, 1280);
 				window.currentRes = 'xs';
 				window.currentOrientation = 'h';
 			}
@@ -756,8 +758,17 @@ function updateVideoStreamSize() {
 		if (!playerElement)
 			return;
 
+			let x = 1280;
+			let y = 720;
+			if(window.innerHeight < window.innerWidth){
+				x = 1280;
+				y = 720;
+			}else{
+				x = 720;
+				y = 1280;
+			}
 		let descriptor = {
-			Console: 'setres ' + playerElement.clientWidth + 'x' + playerElement.clientHeight
+			Console: 'setres ' + x + 'x' + y
 		};
 		emitUIInteraction(descriptor);
 		console.log(descriptor);
