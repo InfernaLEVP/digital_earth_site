@@ -9,6 +9,8 @@ var is_reconnection = false;
 var ws;
 const WS_OPEN_STATE = 1;
 window.currentRes = 'xl';
+window.x = 1280;
+window.y = 720;
 
 var qualityControlOwnershipCheckBox;
 var matchViewportResolution;
@@ -751,28 +753,39 @@ function updateVideoStreamSize() {
 	if (!matchViewportResolution) {
 		return;
 	}
-
+	console.log('RES!RES!RES!');
 	var now = new Date().getTime();
 	if (now - lastTimeResized > 1000) {
 		var playerElement = document.getElementById('player');
 		if (!playerElement)
 			return;
 
-			let x = 1280;
-			let y = 720;
-			if(window.innerHeight < window.innerWidth){
-				x = 1280;
-				y = 720;
-			}else{
-				x = 720;
-				y = 1280;
-			}
-		let descriptor = {
-			Console: 'setres ' + x + 'x' + y
-		};
-		emitUIInteraction(descriptor);
-		console.log(descriptor);
-		lastTimeResized = new Date().getTime();
+		let x = 1280;
+		let y = 720;
+		
+		if(window.innerHeight < window.innerWidth){
+			x = 1280;
+			y = 720;
+		}else{
+			x = 720;
+			y = 1280;
+		}
+
+		if(window.x !== x){
+			let descriptor = {
+				Console: 'setres ' + x + 'x' + y
+			};
+			emitUIInteraction(descriptor);
+			console.log(descriptor);
+			lastTimeResized = new Date().getTime();
+			window.x = x;
+			window.y = y;
+			clearTimeout(resizeTimeout);
+			resizeTimeout = setTimeout(updateVideoStreamSize, 1500);
+		}
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(updateVideoStreamSize, 1500);
+		
 	}
 	else {
 		console.log('Resizing too often - skipping');
