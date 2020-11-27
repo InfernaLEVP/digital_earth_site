@@ -9,8 +9,17 @@ var is_reconnection = false;
 var ws;
 const WS_OPEN_STATE = 1;
 window.currentRes = 'xl';
+
 window.x = 1280;
 window.y = 720;
+
+if(window.innerHeight < window.innerWidth){
+	window.x = 1280;
+	window.y = 720;
+}else{
+	window.x = 720;
+	window.y = 1280;
+}
 
 var qualityControlOwnershipCheckBox;
 var matchViewportResolution;
@@ -276,6 +285,7 @@ function showPlayOverlay() {
 				window.currentOrientation = 'h';
 			}
 			document.getElementById('match-viewport-res-tgl').click();
+			setRes(window.x, window.y);
 		requestQualityControl();
 
 		showFreezeFrameOverlay();
@@ -1553,7 +1563,7 @@ function connect() {
 		return;
 	}
 
-	ws = new WebSocket(window.location.href.replace('http://', 'ws://').replace('https://', 'wss://'));
+	ws = new WebSocket('http://192.168.1.6:80/'.replace('http://', 'ws://').replace('https://', 'wss://'));
 	// window.location.href
 	// http://79.143.64.66/
 	ws.onmessage = function (event) {
