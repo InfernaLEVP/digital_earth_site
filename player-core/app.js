@@ -1263,7 +1263,7 @@ function registerLockedMouseEvents(playerElement) {
 	};
 }
 
-// A hovering mouse works by the user clicking the mouse button when they want
+// A hovering mouse works by the user clicking the mouse button when they want 
 // the cursor to have an effect over the video. Otherwise the cursor just
 // passes over the browser.
 function registerHoveringMouseEvents(playerElement) {
@@ -1467,7 +1467,7 @@ const SpecialKeyCodes = {
 	RightAlt: 255
 };
 
-// We want to be able to differentiate between left and right versions of some
+// We want to be able to differentiate between left and right versions of some 
 // keys.
 function getKeyCode(e) {
 	if (e.keyCode === SpecialKeyCodes.Shift && e.code === 'ShiftRight') return SpecialKeyCodes.RightShift;
@@ -1566,7 +1566,7 @@ function connect() {
 	}
 
 	ws = new WebSocket(window.location.href.replace('http://', 'ws://').replace('https://', 'wss://'));
-	// window.location.href          
+	// window.location.href
 	// http://79.143.64.66/
 	ws.onmessage = function (event) {
 		console.log(`<- SS: ${event.data}`);

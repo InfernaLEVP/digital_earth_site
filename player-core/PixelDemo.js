@@ -212,8 +212,15 @@ function enterFullscreen()
 		onInPageFullscreen();
 	}
 	console.log('FullScreen enabled;');
-	document.querySelector('.header').style.display = 'none';
-	document.querySelector('.p-controls').style.display = 'none';
+
+	try{
+		document.querySelector('.header').style.display = 'none';
+		document.querySelector('.p-controls').style.display = 'none';
+	}catch{
+		document.querySelector('.header').style.display = 'none';
+		document.querySelector('.p-controls').style.display = 'none';
+	}
+
 }
 
 function exitFullscreen()
@@ -242,7 +249,12 @@ function exitFullscreen()
 		if(exitFullscreenFunc) {
 			exitFullscreenFunc.call(document);
 			window.FSS = false;
-			setRes(1280,720);
+			if(window.x > 1000){
+				setRes(720,1280);
+			}else{
+				setRes(1280,720);
+			}
+			
 			setTimeout(() => {
 				setRes(window.x, window.y)
 			}, 1650);
@@ -267,8 +279,15 @@ function exitFullscreen()
 			onInPageFullscreen();
 		}
 		console.log('FullScreen Disabled!');
-		document.querySelector('.header').style.display = 'flex'; 
-		document.querySelector('.p-controls').style.display = 'flex';
+
+		try{
+			document.querySelector('.header').style.display = 'flex'; 
+			document.querySelector('.p-controls').style.display = 'flex';
+		} catch {
+			document.querySelector('.header').style.display = 'flex'; 
+			document.querySelector('.p-controls').style.display = 'flex';
+		}
+		
 		// 
 
 	// }, 200);
