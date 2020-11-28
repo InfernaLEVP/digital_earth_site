@@ -44,8 +44,8 @@ var freezeFrame = {
 
 // Optionally detect if the user is not interacting (AFK) and disconnect them.
 var afk = {
-	enabled: false,   // Set to true to enable the AFK system.
-	warnTimeout: 120,   // The time to elapse before warning the user they are inactive.
+	enabled: true,   // Set to true to enable the AFK system.
+	warnTimeout: 20,   // The time to elapse before warning the user they are inactive.
 	closeTimeout: 10,   // The time after the warning when we disconnect the user.
 
 	active: false,   // Whether the AFK system is currently looking for inactivity.
@@ -763,7 +763,7 @@ function updateVideoStreamSize() {
 	if (!matchViewportResolution) {
 		return;
 	}
-	console.log('RES!RES!RES!');
+	// console.log('RES!RES!RES!');
 	var now = new Date().getTime();
 	if (now - lastTimeResized > 1000) {
 		var playerElement = document.getElementById('player');
@@ -1128,7 +1128,9 @@ function registerInputs(playerElement) {
 		return;
 
 	registerMouseEnterAndLeaveEvents(playerElement);
-	registerTouchEvents(playerElement);
+	// registerTouchEvents(playerElement);
+	window._t = new TouchController(playerElement);
+	console.log(webRtcPlayerObj);
 }
 
 function createOnScreenKeyboardHelpers(htmlElement) {
@@ -1416,7 +1418,7 @@ function registerTouchEvents(playerElement) {
 			for (let t = 0; t < e.changedTouches.length; t++) {
 				rememberTouch(e.changedTouches[t]);
 			}
-
+		
 			if (print_inputs) {
 				console.log('touch start');
 			}
@@ -1564,7 +1566,7 @@ function connect() {
 	}
 
 	ws = new WebSocket(window.location.href.replace('http://', 'ws://').replace('https://', 'wss://'));
-	// window.location.href
+	// window.location.href          
 	// http://79.143.64.66/
 	ws.onmessage = function (event) {
 		console.log(`<- SS: ${event.data}`);
@@ -1636,3 +1638,7 @@ function setRes(width, height) {
 	emitUIInteraction(descriptor);
 	console.log(descriptor);
 }
+
+// 
+// 
+// 
