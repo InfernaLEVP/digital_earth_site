@@ -361,11 +361,11 @@ function resetAfkWarningTimer() {
 function createWebRtcOffer() {
 	if (webRtcPlayerObj) {
 		console.log('Creating offer');
-		showTextOverlay('Starting connection to server, please wait');
+		showTextOverlay('');
 		webRtcPlayerObj.createOffer();
 	} else {
 		console.log('WebRTC player not setup, cannot create offer');
-		showTextOverlay('Unable to setup video');
+		showTextOverlay('');
 	}
 }
 
