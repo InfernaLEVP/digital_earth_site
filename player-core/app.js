@@ -424,7 +424,7 @@ function setupWebRtcPlayer(htmlElement, config) {
 
 	webRtcPlayerObj.onDataChannelConnected = function () {
 		if (ws && ws.readyState === WS_OPEN_STATE) {
-			showTextOverlay('WebRTC connected, waiting for video');
+			showTextOverlay('');
 		}
 	};
 
@@ -1128,9 +1128,9 @@ function registerInputs(playerElement) {
 		return;
 
 	registerMouseEnterAndLeaveEvents(playerElement);
-	// registerTouchEvents(playerElement);
-	window._t = new TouchController(playerElement);
-	console.log(webRtcPlayerObj);
+	registerTouchEvents(playerElement);
+	// window._t = new TouchController(playerElement);
+	// console.log(webRtcPlayerObj);
 }
 
 function createOnScreenKeyboardHelpers(htmlElement) {
@@ -1343,8 +1343,8 @@ function registerTouchEvents(playerElement) {
 		let byte = 2;
 		for (let t = 0; t < touches.length; t++) {
 			let touch = touches[t];
-			let x = touch.clientX - playerElement.offsetLeft;
-			let y = touch.clientY - playerElement.offsetTop;
+			let x = touch.clientX - playerElement.getBoundingClientRect().x;
+			let y = touch.clientY - playerElement.getBoundingClientRect().y;
 			if (print_inputs) {
 				console.log(`F${fingerIds[touch.identifier]}=(${x}, ${y})`);
 			}
