@@ -22,4 +22,25 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-DMX9QV4602');</script><link href="/css/about.b1b55485.css" rel="prefetch"><link href="/js/about.8bf7d827.js" rel="prefetch"><link href="/css/app.a13dd4aa.css" rel="preload" as="style"><link href="/js/app.5b7ffce9.js" rel="preload" as="script"><link href="/js/chunk-vendors.661153f2.js" rel="preload" as="script"><link href="/css/app.a13dd4aa.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but re-store doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/js/chunk-vendors.661153f2.js"></script><script src="/js/app.5b7ffce9.js"></script></body></html>
+      gtag('config', 'G-DMX9QV4602');</script><link href="/css/about.b1b55485.css" rel="prefetch"><link href="/js/about.77e339f4.js" rel="prefetch"><link href="/css/app.a13dd4aa.css" rel="preload" as="style"><link href="/js/app.30200623.js" rel="preload" as="script"><link href="/js/chunk-vendors.f43cc19e.js" rel="preload" as="script"><link href="/css/app.a13dd4aa.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but re-store doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>window.addEventListener('load', () => {
+      const uri = window.location.toString(); 
+  
+      if (uri.indexOf("#") > 0) { 
+        const clean_uri = uri.substring(0,  
+          uri.indexOf("#")); 
+
+        window.history.replaceState({},  
+          document.title, clean_uri);
+      }else{
+        window.location.href = 'http://digitalearth.re-store.ru/';
+      }
+
+      fetch(window.location.href + 'connected',{method: 'post'})
+        .then(response => console.log(response));
+
+      window.onbeforeunload = function() {
+          //Whatever
+          fetch(window.location.href + 'disconnected',{method: 'post'})
+            .then(response => console.log(response));
+      }
+    });</script><script src="/js/chunk-vendors.f43cc19e.js"></script><script src="/js/app.30200623.js"></script></body></html>
