@@ -211,10 +211,12 @@ function sendQualityConsoleCommands(descriptor) {
 function setOverlay(htmlClass, htmlElement, onClickFunction) {
 	var videoPlayOverlay = document.getElementById('videoPlayOverlay');
 	if (!videoPlayOverlay) {
-		var playerDiv = document.getElementById('player');
-		videoPlayOverlay = document.createElement('div');
-		videoPlayOverlay.id = 'videoPlayOverlay';
-		playerDiv.appendChild(videoPlayOverlay);
+		try{
+			var playerDiv = document.getElementById('player');
+			videoPlayOverlay = document.createElement('div');
+			videoPlayOverlay.id = 'videoPlayOverlay';
+			playerDiv.appendChild(videoPlayOverlay);
+		}catch{}
 	}
 
 	// Remove existing html child elements so we can add the new one
