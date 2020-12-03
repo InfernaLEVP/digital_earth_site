@@ -44,7 +44,7 @@ var freezeFrame = {
 
 // Optionally detect if the user is not interacting (AFK) and disconnect them.
 var afk = {
-	enabled: true,   // Set to true to enable the AFK system.
+	enabled: false,   // Set to true to enable the AFK system.
 	warnTimeout: 20,   // The time to elapse before warning the user they are inactive.
 	closeTimeout: 10,   // The time after the warning when we disconnect the user.
 
@@ -229,9 +229,11 @@ function setOverlay(htmlClass, htmlElement, onClickFunction) {
 
 	if (onClickFunction) {
 		videoPlayOverlay.addEventListener('click', function onOverlayClick(event) {
+			window.setTrailerResolution();
 			onClickFunction(event);
 			if(iOS()){
 				console.log('IOS SE');
+				
 				resizePlayerStyle();
 			}
 			videoPlayOverlay.removeEventListener('click', onOverlayClick);
@@ -294,6 +296,7 @@ function showPlayOverlay() {
 		hideOverlay();
 	});
 	shouldShowPlayOverlay = false;
+	// onConfigButton(1,4);
 	// document.querySelector('#videoPlayOverlay').click();
 }
 
@@ -1644,3 +1647,15 @@ function setRes(width, height) {
 // 
 // 
 // 
+window.setTrailerResolution = function (){
+	let con = '0';
+	if(window.innerHeight < window.innerWidth){
+		con = '1';
+	}else{
+		con = '2';
+	}
+	let descriptor = {
+		Connect: con,
+	};
+	emitUIInteraction(descriptor);
+}
