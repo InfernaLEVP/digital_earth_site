@@ -48,7 +48,6 @@
           //Whatever
           fetch(window.location.href + 'disconnected',{method: 'post'})
             .then(response => console.log(response));
-            return "Warning!";
       }
 
       // window.lastClick = new Date().getTime();
@@ -65,4 +64,35 @@
       //   }
       // });
 
-    });</script><script src="/js/chunk-vendors.f43cc19e.js"></script><script src="/js/app.59e63bb2.js"></script></body></html>
+    });</script><script>let timer, currSeconds = 0; 
+  
+    function resetTimer() { 
+        /* Clear the previous interval */ 
+        clearInterval(timer); 
+
+        /* Reset the seconds of the timer */ 
+        currSeconds = 0; 
+
+        /* Set a new interval */ 
+        timer = setInterval(startIdleTimer, 1000); 
+    } 
+
+    // Define the events that 
+    // would reset the timer
+    window.onload = resetTimer; 
+    window.onmousemove = resetTimer; 
+    window.onmousedown = resetTimer; 
+    window.ontouchstart = resetTimer; 
+    window.onclick = resetTimer; 
+    window.onkeypress = resetTimer; 
+
+    function startIdleTimer() { 
+          
+        /* Increment the 
+            timer seconds */
+        currSeconds++; 
+        if(currSeconds >= 120){
+          window.location.href = 'http://digitalearth.re-store.ru/idle'
+        }
+
+    }</script><script src="/js/chunk-vendors.f43cc19e.js"></script><script src="/js/app.59e63bb2.js"></script></body></html>
