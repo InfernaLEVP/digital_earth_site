@@ -1,4 +1,26 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>Digital Earth: открывая искусство будущего</title><meta property="og:title" content="Digital Earth: открывая искусство будущего"><meta property="og:url" content="http://digitalearth.re-store.ru/"><meta property="og:image" content="/og-image.jpg"><meta property="og:description" content="Платформа Digital Earth - это принципиально новый виртуальный формат музея современного искусства. Геймифицированная среда создана, чтобы вы смогли опробовать уникальный маршрут для знакомства с произведениями в жанрах цифрового искусства."><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><script src="https://webrtc.github.io/adapter/adapter-latest.js"></script><script src="./player-core/touch-controller.js"></script><script src="./player-core/webRtcPlayer.js"></script><script src="./player-core/app.js"></script><script src="./player-core/PixelDemo.js"></script><script src="./player-core/resizer.js"></script><style>/*  */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>Digital Earth: открывая искусство будущего</title><meta property="og:title" content="Digital Earth: открывая искусство будущего"><meta property="og:url" content="http://digitalearth.re-store.ru/"><meta property="og:image" content="/og-image.jpg"><meta property="og:description" content="Платформа Digital Earth - это принципиально новый виртуальный формат музея современного искусства. Геймифицированная среда создана, чтобы вы смогли опробовать уникальный маршрут для знакомства с произведениями в жанрах цифрового искусства.">
+<script>
+  function onLoadDetect(){
+      const uri = window.location.toString(); 
+      // const dd = document.getElementById('iosD');
+      // dd.innerHTML += uri + '<br>';
+      // dd.innerHTML += uri.indexOf("#");
+      if (uri.indexOf("#") > 0) { 
+        const clean_uri = uri.substring(0,  
+          uri.indexOf("#")); 
+
+        window.history.replaceState({},  
+          document.title, clean_uri);
+      }else{
+        const dd = document.getElementById('iosD');
+        //dd.innerHTML += 'Suuqa <br>';
+        window.location.href = 'http://digitalearth.re-store.ru/';
+      }
+      // window.removeEventListener('load', onLoadDetect, false);
+    }
+    onLoadDetect();
+</script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><script src="https://webrtc.github.io/adapter/adapter-latest.js"></script><script src="./player-core/touch-controller.js"></script><script src="./player-core/webRtcPlayer.js"></script><script src="./player-core/app.js"></script><script src="./player-core/PixelDemo.js"></script><script src="./player-core/resizer.js"></script><style>/*  */
       /* Header Fix */
       /*  */
       .header__menu-link:hover {
@@ -22,25 +44,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-DMX9QV4602');</script><script>window.gallery = 0;</script><link href="/css/about.92efeb5c.css" rel="prefetch"><link href="/js/about.d28ae883.js" rel="prefetch"><link href="/css/app.8eebd994.css" rel="preload" as="style"><link href="/js/app.9544ee94.js" rel="preload" as="script"><link href="/js/chunk-vendors.5e0a1de7.js" rel="preload" as="script"><link href="/css/app.8eebd994.css" rel="stylesheet"></head><body><div id="iosD" style="color:white;"></div><noscript><strong>We're sorry but re-store doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>function onLoadDetect(){
-      const uri = window.location.toString(); 
-      // const dd = document.getElementById('iosD');
-      // dd.innerHTML += uri + '<br>';
-      // dd.innerHTML += uri.indexOf("#");
-      if (uri.indexOf("#") > 0) { 
-        const clean_uri = uri.substring(0,  
-          uri.indexOf("#")); 
-
-        window.history.replaceState({},  
-          document.title, clean_uri);
-      }else{
-        const dd = document.getElementById('iosD');
-        //dd.innerHTML += 'Suuqa <br>';
-        window.location.href = 'http://digitalearth.re-store.ru/';
-      }
-      // window.removeEventListener('load', onLoadDetect, false);
-    }
-    onLoadDetect();
+      gtag('config', 'G-DMX9QV4602');</script><script>window.gallery = 0;</script><link href="/css/about.92efeb5c.css" rel="prefetch"><link href="/js/about.d28ae883.js" rel="prefetch"><link href="/css/app.8eebd994.css" rel="preload" as="style"><link href="/js/app.9544ee94.js" rel="preload" as="script"><link href="/js/chunk-vendors.5e0a1de7.js" rel="preload" as="script"><link href="/css/app.8eebd994.css" rel="stylesheet"></head><body><div id="iosD" style="color:white;"></div><noscript><strong>We're sorry but re-store doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>
     // window.addEventListener('load', onLoadDetect, false);
 
     // fetch(window.location.href + 'connected',{method: 'post'})
