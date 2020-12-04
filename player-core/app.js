@@ -1570,7 +1570,7 @@ function connect() {
 		return;
 	}
 
-	ws = new WebSocket('http://s1.digitalearth.re-store.ru:81/'.replace('http://', 'ws://').replace('https://', 'wss://'));
+	ws = new WebSocket(window.location.href.replace('http://', 'ws://').replace('https://', 'wss://'));
 	// window.location.href
 	// http://79.143.64.66/
 	ws.onmessage = function (event) {

@@ -79,19 +79,19 @@
 
     // Define the events that 
     // would reset the timer
-    window.onload = resetTimer; 
+    window.onload = resetTimer;
     window.onmousemove = resetTimer; 
     window.onmousedown = resetTimer; 
     window.ontouchstart = resetTimer; 
-    window.onclick = resetTimer; 
-    window.onkeypress = resetTimer; 
+    window.onclick = resetTimer;
+    window.onkeypress = resetTimer;
 
     function startIdleTimer() { 
           
         /* Increment the 
             timer seconds */
         currSeconds++; 
-        if(currSeconds >= 120){
+        if(currSeconds >= 600){
           window.location.href = 'http://digitalearth.re-store.ru/idle'
         }
 
