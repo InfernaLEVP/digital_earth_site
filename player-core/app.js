@@ -10,12 +10,25 @@ var ws;
 const WS_OPEN_STATE = 1;
 window.currentRes = 'xl';
 
-window.x = 1280;
-window.y = 720;
-
-if(window.innerHeight < window.innerWidth){
+if(getOS() === 'Mac Os'){
+	window.x = 1440;
+	window.y = 900;
+}else{
 	window.x = 1280;
 	window.y = 720;
+}
+
+
+if(window.innerHeight < window.innerWidth){
+
+	if(getOS() === 'Mac Os'){
+		window.x = 1440;
+		window.y = 900;
+	}else{
+		window.x = 1280;
+		window.y = 720;
+	}
+	
 }else{
 	window.x = 720;
 	window.y = 1280;
@@ -768,7 +781,7 @@ function updateVideoStreamSize() {
 	if (!matchViewportResolution) {
 		return;
 	}
-	// console.log('RES!RES!RES!');
+	
 	var now = new Date().getTime();
 	if (now - lastTimeResized > 1000) {
 		var playerElement = document.getElementById('player');
@@ -785,11 +798,21 @@ function updateVideoStreamSize() {
 			x = 720;
 			y = 1280;
 		}
-
+		
 		if(window.x !== x){
-			let descriptor = {
-				Console: 'setres ' + x + 'x' + y
-			};
+			let descriptor = {};
+			if(getOS() === 'Mac Os'){
+				console.log('MAC!');
+				descriptor = {
+					Console: 'setres ' + playerElement.clientWidth + 'x' + playerElement.clientHeight
+				};
+			}else{
+				console.log('NOT MAC!');
+				descriptor = {
+					Console: 'setres ' + x + 'x' + y
+				};
+			}
+			
 			emitUIInteraction(descriptor);
 			console.log(descriptor);
 			lastTimeResized = new Date().getTime();
@@ -1658,4 +1681,27 @@ window.setTrailerResolution = function (){
 		Connect: con,
 	};
 	emitUIInteraction(descriptor);
+}
+
+function getOS() {
+  var userAgent = window.navigator.userAgent,
+      platform = window.navigator.platform,
+      macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+      windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+      iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+      os = null;
+
+  if (macosPlatforms.indexOf(platform) !== -1) {
+    os = 'Mac OS';
+  } else if (iosPlatforms.indexOf(platform) !== -1) {
+    os = 'iOS';
+  } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    os = 'Windows';
+  } else if (/Android/.test(userAgent)) {
+    os = 'Android';
+  } else if (!os && /Linux/.test(platform)) {
+    os = 'Linux';
+  }
+
+  return os;
 }

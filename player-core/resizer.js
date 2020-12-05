@@ -5,7 +5,7 @@
 window.addEventListener('resize', reportWindowSize);
 
 function reportWindowSize(event) {
-	console.log('resize!');
+	// console.log('resize!');
 
   setTimeout(() => {
 
@@ -29,12 +29,12 @@ function reportWindowSize(event) {
         * 4)
         - (document.querySelector('.p-controls').offsetHeight + 25);
 
-        console.log(availableH);
+        // console.log(availableH);
         if(availableH > Math.floor(_w *  0.5625)){
           document.querySelector('#playerUI').style.height = Math.floor(_w *  0.5625) + 'px';
-          console.log('1');
+          // console.log('1');
         }else{
-          console.log('2');
+          // console.log('2');
           document.querySelector('#playerUI').style.width = (availableH * 1.7777) + 'px';
           document.querySelector('#playerUI').style.height = availableH + 'px';
         }

@@ -249,11 +249,23 @@ function exitFullscreen()
 		if(exitFullscreenFunc) {
 			exitFullscreenFunc.call(document);
 			window.FSS = false;
-			if(window.x > 1000){
-				setRes(720,1280);
+
+			if(getOS() === 'Mac Os'){
+				console.log('MAC!');
+				if(window.x > 1000){
+					setRes(720,1280);
+				}else{
+					setRes(1440,900);
+				}
 			}else{
-				setRes(1280,720);
+				console.log('NOT MAC!');
+				if(window.x > 1000){
+					setRes(720,1280);
+				}else{
+					setRes(1280,720);
+				}
 			}
+			
 			
 			setTimeout(() => {
 				setRes(window.x, window.y)
