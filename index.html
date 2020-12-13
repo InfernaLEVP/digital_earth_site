@@ -49,17 +49,17 @@
           trackLinks:true,
           accurateTrackBounce:true,
           webvisor:true
-      });</script><noscript><div><img src="https://mc.yandex.ru/watch/70284397" style="position:absolute; left:-9999px;" alt=""></div></noscript><script>window.gallery = 0;</script><link href="/css/about.1145e33e.css" rel="prefetch"><link href="/js/about.ac928d4f.js" rel="prefetch"><link href="/css/app.8eebd994.css" rel="preload" as="style"><link href="/js/app.3580ba6d.js" rel="preload" as="script"><link href="/js/chunk-vendors.5e0a1de7.js" rel="preload" as="script"><link href="/css/app.8eebd994.css" rel="stylesheet"></head><body><div id="iosD" style="color:white;"></div><noscript><strong>We're sorry but re-store doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>// window.addEventListener('load', onLoadDetect, false);
+      });</script><noscript><div><img src="https://mc.yandex.ru/watch/70284397" style="position:absolute; left:-9999px;" alt=""></div></noscript><script>window.gallery = 0;</script><link href="/css/about.043ffdc0.css" rel="prefetch"><link href="/js/about.8fd50e00.js" rel="prefetch"><link href="/css/app.6f7cdfee.css" rel="preload" as="style"><link href="/js/app.e50621aa.js" rel="preload" as="script"><link href="/js/chunk-vendors.16fac8da.js" rel="preload" as="script"><link href="/css/app.6f7cdfee.css" rel="stylesheet"></head><body><div id="iosD" style="color:white;"></div><noscript><strong>We're sorry but re-store doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>// window.addEventListener('load', onLoadDetect, false);
 
     // fetch(window.location.href + 'connected',{method: 'post'})
     //   .then(response => console.log(response));
 
-    // window.onbeforeunload = function(event) {
-    //   event.preventDefault();
-    //     //Whatever
-    //     fetch(window.location.href + 'disconnected',{method: 'post'})
-    //       .then(response => console.log(response));
-    // }
+    window.onbeforeunload = function(event) {
+      event.preventDefault();
+        //Whatever
+        fetch(window.location.href + 'disconnected',{method: 'post'})
+          .then(response => console.log(response));
+    }
 
     // window.lastClick = new Date().getTime();
     // document.addEventListener('click', () => {
@@ -84,4 +84,4 @@
         w[m] = w[m] || function() { (w[m].q = w[m].q || []).push(arguments); };
         if (sc) sc.parentNode.insertBefore(s, sc); 
         else d.documentElement.firstChild.appendChild(s);
-    })(document, window, 'Verbox');</script><script src="/js/chunk-vendors.5e0a1de7.js"></script><script src="/js/app.3580ba6d.js"></script></body></html>
+    })(document, window, 'Verbox');</script><script src="/js/chunk-vendors.16fac8da.js"></script><script src="/js/app.e50621aa.js"></script></body></html>
